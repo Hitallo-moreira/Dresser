@@ -1,0 +1,7 @@
+@import './base/variables';
+@import './base/typography';
+
+body {
+    background-color: $body-background;
+    font-family: $font-family;
+}
