@@ -74,7 +74,6 @@ function Header({ menuItems }) {
                     <h1>Dresser.</h1>
                 </Logo>
                 <ul>
-                    
                     {menuItems.map((item) => (
                         <li key={item}> {item} </li>
                     ))}
