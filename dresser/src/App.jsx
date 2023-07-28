@@ -1,10 +1,14 @@
 import Header from "./components/Header"
+import HeroSection from "./components/HeroSection";
 
 function App() {
   const menuItems = ['Feminino', 'Masculino', 'Marcas'];
 
   return (
-    <Header menuItems={menuItems} />
+    <div className="container">
+      <Header menuItems={menuItems} />
+      <HeroSection />
+    </div>
   )
 }
 
