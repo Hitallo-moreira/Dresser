@@ -13,10 +13,11 @@ const Logo = styled.div`
 `;
 
 const Menu = styled.header`
-    position: absolute;
+    position: fixed;
     top: 0;
-    height: 80px;
+    left: 0;
     width: 100%;
+    height: 100px;
     
     ul {
         display: flex;
@@ -31,6 +32,7 @@ const Menu = styled.header`
         
         li {
             transition: .3s;
+            
             &:hover {
                 cursor: pointer;
                 color: #b1b1b1;
