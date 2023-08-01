@@ -8,13 +8,10 @@ const MainContent = styled.div`
     background-color: #ccc;
     height: 500px;
     width: auto;
-    margin-top: 100px;
-    position: fixed;
     padding: 90px;
 `;
 
 const Info = styled.div`
-    color: #000;
     font-size: 48px;
     font-weight: 600;
     text-align: center;
