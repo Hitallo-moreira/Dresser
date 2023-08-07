@@ -32,3 +32,5 @@ npm run dev
 <li>Sass</li>
 <li>Styled-Components</li>
 </ul>
+
+<h3 id="features">Features</h3>
