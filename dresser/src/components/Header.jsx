@@ -24,17 +24,19 @@ const Menu = styled.header`
         gap: 20px;
         margin: 0;
         padding: 0;
-        color: #000;
-        font-size: ${fontSize}px;
         list-style: none;
-        font-weight: 600;
         
         li {
-            transition: .3s;
-            
-            &:hover {
-                cursor: pointer;
-                color: #b1b1b1;
+            a {
+                font-size: ${fontSize}px;
+                color: #000;
+                font-weight: 600;
+                text-decoration: none;
+                transition: .3s;
+                
+                &:hover {
+                    color: #b1b1b1;
+                }
             }
         }
     }
@@ -70,13 +72,15 @@ const UserProfile = styled.div`
 function Header({ menuItems }) {
     return (
         <Menu>
-            <MenuOptions className='container'>
+            <MenuOptions>
                 <Logo>
                     <h1>Dresser.</h1>
                 </Logo>
                 <ul>
                     {menuItems.map((item) => (
-                        <li key={item}> {item} </li>
+                        <li key={item}>
+                            <a href={`/${item.toLowerCase()}`}>{item}</a>
+                        </li>
                     ))}
                 </ul>
                 <Info>
