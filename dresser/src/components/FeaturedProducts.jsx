@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import SimpleSlider from './Slider';
+import PropTypes from 'prop-types';
 
 const Title = styled.h1`
     font-size: 32px;
@@ -11,13 +12,17 @@ const FeatureDiv = styled.div`
     margin-bottom: 4rem;
 `;
 
-function FeaturedProducts() {
+function FeaturedProducts(props) {
     return (
         <FeatureDiv>
-            <Title>Produtos em destaque</Title>
+            <Title>{props.featuredTitle}</Title>
             <SimpleSlider/ >
         </FeatureDiv>
     )
 }
+
+FeaturedProducts.propTypes = {
+    featuredTitle: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default FeaturedProducts

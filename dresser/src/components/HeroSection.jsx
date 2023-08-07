@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const MainContent = styled.div`
     display: flex;
@@ -36,12 +37,12 @@ const CallToAction = styled.div`
     }
 `;
 
-function HeroSection() {
+function HeroSection(props) {
     return (
         <div>
             <MainContent className='container'>
                 <Info>
-                    Descubra a moda que faz você brilhar! Seu estilo único começa aqui
+                    {props.info}
                 </Info>
                 <CallToAction>
                     <input type="submit" value={"Comprar agora"} />
@@ -50,5 +51,9 @@ function HeroSection() {
         </div>
     )
 }
+
+HeroSection.propTypes = {
+    info: PropTypes.string.isRequired,
+};
 
 export default HeroSection

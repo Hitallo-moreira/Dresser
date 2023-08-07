@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import nike from '../assets/nike.png'
 import adidas from '../assets/adidas.png'
+import PropTypes from 'prop-types';
 
 const BrandsDiv = styled.div`
     margin: 37px 0 7rem 0;
@@ -25,26 +26,30 @@ const BrandImage = styled.div`
     }
 `;
 
-function Brands() {
+function Brands(props) {
     return (
         <BrandsDiv>
-            <h1>Marcas</h1>
+            <h1>{props.brandsTitle}</h1>
             <Main>            
                 <BrandImage>
-                    <img src={nike} alt="" />
+                    <img src={nike} alt="Nike logo" />
                 </BrandImage>
                 <BrandImage>
-                    <img src={adidas} alt="" />
+                    <img src={adidas} alt="Adidas logo" />
                 </BrandImage>
                 <BrandImage>
-                    <img src={nike} alt="" />
+                    <img src={nike} alt="Nike logo" />
                 </BrandImage>
                 <BrandImage>
-                    <img src={adidas} alt="" />
+                    <img src={adidas} alt="Adidas logo" />
                 </BrandImage>
             </Main>
         </BrandsDiv>
     )
 }
+
+Brands.propTypes = {
+    brandsTitle: PropTypes.string.isRequired,
+};
 
 export default Brands

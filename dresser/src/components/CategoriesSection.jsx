@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const CategoryDiv = styled.div`
     height: 700px;
@@ -14,10 +15,10 @@ const Title = styled.h1`
     margin-bottom: 2rem;
 `;
 
-function Categories() {
+function Categories(props) {
     return (
         <CategoryDiv>
-            <Title>Categorias</Title>
+            <Title>{props.categoriesTitle}</Title>
             <div className='grid-container'>
                 <div className='grid-item'>1</div>
                 <div className='grid-item'>2</div>
@@ -27,5 +28,9 @@ function Categories() {
         </CategoryDiv>
     )
 }
+
+Categories.propTypes = {
+    categoriesTitle: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Categories
