@@ -26,3 +26,9 @@ npm install
 ```
 npm run dev
 ```
+<h2 id="tecnologias">Tecnologias utilizadas</h2>
+<ul>
+<li>React.js</li>
+<li>Sass</li>
+<li>Styled-Components</li>
+</ul>
