@@ -40,6 +40,14 @@ const NewsletterInputSubmit = styled.input`
     width: 100px;
     border: none;
     border-radius: 0px 10px 10px 0px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #000;
+    transition: .3s;
+
+    &:hover {
+        background-color: #353535;
+    }
 `;
 
 function Newsletter(props) {
