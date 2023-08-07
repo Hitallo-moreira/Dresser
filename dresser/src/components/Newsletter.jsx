@@ -29,7 +29,7 @@ const NewsletterInputText = styled.input`
     outline: none;
     font-size: 24px;
     color: #353535;
-    padding-left: 10px;
+    padding-left: 15px;
     background-color: #E1E1E1;
     border: none;
     border-radius: 10px 0px 0px 10px;
@@ -57,7 +57,7 @@ function Newsletter(props) {
                 <Title>{props.newsletterTitle}</Title>
             </TitleDiv>
             <Form>            
-                <NewsletterInputText type="text" />
+                <NewsletterInputText type="text" placeholder="Digite aqui seu E-mail" />
                 <NewsletterInputSubmit type="submit" />
             </Form>            
         </NewsletterDiv>
