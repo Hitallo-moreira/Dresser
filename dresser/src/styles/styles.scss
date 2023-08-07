@@ -1,6 +1,11 @@
 @import './base/variables';
 @import './base/typography';
 @import './components/header';
+@import './components/grid-categories';
+
+html {
+    background-color: #ffffff !important;
+}
 
 body {
     font-family: $font-family;
