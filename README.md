@@ -11,3 +11,18 @@ E-commerce de roupas</p>
 
 <h2 id="sobre">Sobre</h2>
 <p>Bem-vindo ao Dresser, sua porta de entrada para a moda que expressa sua individualidade! Este é um projeto pessoal de e-commerce de roupas onde você pode explorar uma ampla variedade de peças elegantes e estilosas.</p>
+
+<h2 id="instalacao">Instalação</h2>
+
+```
+git clone git@github.com:Hitallo-moreira/Dresser.git
+```
+```
+cd .\dresser\
+```
+```
+npm install
+```
+```
+npm run dev
+```
