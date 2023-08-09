@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import SimpleSlider from './Slider';
 import PropTypes from 'prop-types';
@@ -13,10 +14,25 @@ const FeatureDiv = styled.div`
 `;
 
 function FeaturedProducts(props) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        function handleWindowResize() {
+            setIsMobile(window.innerWidth <= 768);
+        }
+
+        handleWindowResize();
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
+
     return (
         <FeatureDiv>
-            <Title>{props.featuredTitle}</Title>
-            <SimpleSlider/ >
+            <Title>{isMobile ? 'Destaques' : props.featuredTitle}</Title>
+            <SimpleSlider />
         </FeatureDiv>
     )
 }

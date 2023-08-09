@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -10,12 +11,20 @@ const MainContent = styled.div`
     height: 500px;
     width: auto;
     padding: 90px;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        padding: 20px;
+    }
 `;
 
 const Info = styled.div`
     font-size: 48px;
     font-weight: 600;
     text-align: center;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        font-size: 32px;
+    }
 `;
 
 const CallToAction = styled.div`
@@ -38,11 +47,26 @@ const CallToAction = styled.div`
 `;
 
 function HeroSection(props) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        function handleWindowResize() {
+            setIsMobile(window.innerWidth <= 768);
+        }
+
+        handleWindowResize();
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
+
     return (
         <div>
             <MainContent className='container'>
                 <Info>
-                    {props.info}
+                    {isMobile ? 'Descubra a moda que faz você brilhar!' : props.info}
                 </Info>
                 <CallToAction>
                     <input type="submit" value={"Comprar agora"} />

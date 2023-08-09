@@ -6,6 +6,11 @@ const CategoryDiv = styled.div`
     background-color: #E1E1E1;
     margin-bottom: 7rem;
     padding: 3rem;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin-bottom: 1.25rem;
+        padding: 1.25rem;
+    }
 `;
 
 const Title = styled.h1`
@@ -13,6 +18,11 @@ const Title = styled.h1`
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 2rem;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        font-size: 32px;
+        margin-bottom: 1rem;
+    }
 `;
 
 function Categories(props) {

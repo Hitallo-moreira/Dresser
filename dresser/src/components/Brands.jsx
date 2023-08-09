@@ -5,7 +5,7 @@ import adidas from '../assets/adidas.png'
 import PropTypes from 'prop-types';
 
 const BrandsDiv = styled.div`
-    margin: 37px 0 7rem 0;
+    margin: 37px 0 4rem 0;
 
     h1 {
         color: #000;
