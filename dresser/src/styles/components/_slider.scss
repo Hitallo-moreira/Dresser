@@ -1,0 +1,12 @@
+.swiper-slide,
+.swiper-slide.swiper-slide-next,
+.swiper-slide.swiper-slide-prev,
+.swiper-slide.swiper-slide-active {
+    background-color: #ccc;
+    height: 300px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: gray;
+}
