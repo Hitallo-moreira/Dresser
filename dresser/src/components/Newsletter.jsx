@@ -8,6 +8,11 @@ const NewsletterDiv = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 7rem;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin-bottom: 4rem;
+        align-items: flex-start;
+    }
 `;
 
 const TitleDiv = styled.div`
@@ -26,7 +31,7 @@ const Title = styled.h1`
     margin: 0;
 
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        font-size: 32px;
+        font-size: 27px;
     }
 `;
 
@@ -91,7 +96,7 @@ function Newsletter(props) {
     return (
         <NewsletterDiv>
             <TitleDiv>
-                <Title>{isMobile ? 'Se inscreva na nossa newsletter' : props.newsletterTitle}</Title>
+                <Title>{isMobile ? 'Assine nossa newsletter' : props.newsletterTitle}</Title>
             </TitleDiv>
             <Form>
                 <NewsletterInputText type="text" placeholder={inputPlaceholder} />
