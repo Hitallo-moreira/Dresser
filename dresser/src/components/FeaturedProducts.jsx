@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import SimpleSlider from './Slider';
+import Slider from './Slider';
 import PropTypes from 'prop-types';
 
 const Title = styled.h1`
@@ -32,7 +32,7 @@ function FeaturedProducts(props) {
     return (
         <FeatureDiv>
             <Title>{isMobile ? 'Destaques' : props.featuredTitle}</Title>
-            <SimpleSlider />
+            <Slider />
         </FeatureDiv>
     )
 }

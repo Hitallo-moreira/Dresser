@@ -1,53 +1,40 @@
-import { Component } from 'react';
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import styled from 'styled-components'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-const ProductCard = styled.div`
-    height: 300px;
-    width: 300px;
-    background-color: #ccc;
-`;
+function Slider() {
+  return (
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={50}
+      slidesPerView={2}
+      navigation
+      autoplay={{ delay: 3000 }}
+      pagination={{ clickable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      breakpoints={{
+        320: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      }}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+    </Swiper>
+  )
+}
 
+export default Slider;
 
-export default class SimpleSlider extends Component {
-    render() {
-      const settings = {
-        arrows: true,
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000
-      };
-      return (
-        <div>
-          <Slider {...settings}>
-            <div>
-                <ProductCard>
-                    <p>teste</p>
-                </ProductCard>
-            </div>
-            <div>
-                <ProductCard>
-                    <p>teste</p>
-                </ProductCard>
-            </div>
-            <div>
-                <ProductCard>
-                    <p>teste</p>
-                </ProductCard>
-            </div>
-            <div>
-                <ProductCard>
-                    <p>teste</p>
-                </ProductCard>
-            </div>
-          </Slider>
-        </div>
-      );
-    }
-  }
