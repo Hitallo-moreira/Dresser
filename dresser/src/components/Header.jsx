@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { slide as BurgerMenu } from 'react-burger-menu';
+import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import userProfile from '../assets/user-profile.png'
 import bag from '../assets/bag.png'
@@ -6,15 +9,23 @@ import PropTypes from 'prop-types';
 const fontSize = 20;
 const Logo = styled.div`
     h1 {
-        color: #000;
-        font-size: 32px;
-        cursor: pointer;
+        a {
+            color: #000;
+            font-size: 32px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        h1 {
+            text-align: center;
+            margin: 23px 0 1.25rem 0;
+        }
     }
 `;
 
 const Menu = styled.header`
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100px;
     
@@ -40,25 +51,59 @@ const Menu = styled.header`
             }
         }
     }
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        height: auto;
+
+        ul {
+            flex-direction: column;
+        }
+    }
 `;
 
-const MenuOptions = styled.div `
+const MenuOptions = styled.div`
     height: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
 
-const Info =  styled.div`
+const BurgerMenuItems = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const Info = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 10px;
+
+        p {
+            margin: 0;
+            color: #000;
+        }
+    }
 `;
 
 const BagDiv = styled.div`
     img {
         width: 36px;
         cursor: pointer;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        margin-bottom: 20px;
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: 20px;
+        }
     }
 `;
 
@@ -70,28 +115,68 @@ const UserProfile = styled.div`
 `;
 
 function Header({ menuItems }) {
+    const isMobile = useMediaQuery({ maxWidth: 768 });
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleMenuClose = () => {
+        setIsOpen(false);
+    };
+
     return (
         <Menu>
-            <MenuOptions>
-                <Logo>
-                    <h1>Dresser.</h1>
-                </Logo>
-                <ul>
-                    {menuItems.map((item) => (
-                        <li key={item}>
-                            <a href={`/${item.toLowerCase()}`}>{item}</a>
-                        </li>
-                    ))}
-                </ul>
-                <Info>
-                    <BagDiv>
-                        <img src={bag} alt="shopping bag" />
-                    </BagDiv>
-                    <UserProfile>
-                        <img src={userProfile} alt="User profile" />
-                    </UserProfile>
-                </Info>
-            </MenuOptions>
+            {isMobile ? (
+                <div>
+                    <Logo>
+                        <h1 onClick={handleMenuClose}><a href="#">Dresser.</a></h1>
+                    </Logo>
+                    <BurgerMenu left isOpen={isOpen} onStateChange={state => setIsOpen(state.isOpen)}>
+                        <MenuOptions>
+                            <BurgerMenuItems>
+                                <Info>
+                                    <UserProfile>
+                                        <img src={userProfile} alt="User profile" />
+                                    </UserProfile>
+                                    <div>
+                                        <p>Olá, José</p>
+                                    </div>
+                                </Info>
+                                    <BagDiv>
+                                        <a href="">Meus pedidos</a>
+                                    </BagDiv>
+                                <ul>
+                                    {menuItems.map((item) => (
+                                        <li key={item}>
+                                            <a href={`/${item.toLowerCase()}`}>{item}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </BurgerMenuItems>
+                        </MenuOptions>
+                    </BurgerMenu>
+                </div>
+            ) : (
+                <MenuOptions>
+                    <Logo>
+                        <h1><a href="#">Dresser.</a></h1>
+                    </Logo>
+                    <ul>
+                        {menuItems.map((item) => (
+                            <li key={item}>
+                                <a href={`/${item.toLowerCase()}`}>{item}</a>
+                            </li>
+                        ))}
+                    </ul>
+                    <Info>
+                        <BagDiv>
+                            <img src={bag} alt="shopping bag" />
+                        </BagDiv>
+                        <UserProfile>
+                            <img src={userProfile} alt="User profile" />
+                        </UserProfile>
+                    </Info>
+                </MenuOptions>
+
+            )}
         </Menu>
     )
 }
