@@ -14,6 +14,7 @@ const MainContent = styled.div`
 
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         padding: 20px;
+        height: 400px;
     }
 `;
 
