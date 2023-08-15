@@ -15,7 +15,7 @@ function App() {
       <div className="container">
         <Header menuItems={menuItems} />
         <HeroSection info="Descubra a moda que faz você brilhar! Seu estilo único começa aqui" />
-        <Brands brandsTitle="Marca" />
+        <Brands brandsTitle="Marcas" />
         <FeaturedProducts featuredTitle="Produtos em destaque" />
         <Categories categoriesTitle="Categorias" />
         <Newsletter newsletterTitle="Se inscreva na nossa newsletter e fique por dentro das novidades" />
