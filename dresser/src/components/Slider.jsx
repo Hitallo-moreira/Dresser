@@ -14,8 +14,6 @@ function Slider() {
       navigation
       autoplay={{ delay: 3000 }}
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
       breakpoints={{
         320: {
           slidesPerView: 1
