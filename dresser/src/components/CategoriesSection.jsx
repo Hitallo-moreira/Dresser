@@ -8,8 +8,9 @@ const CategoryDiv = styled.div`
     padding: 3rem;
 
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        margin-bottom: 1.25rem;
+        margin-bottom: 37px;
         padding: 1.25rem;
+        height: 500px;
     }
 `;
 
