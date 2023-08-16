@@ -20,7 +20,7 @@ function App() {
         <Categories categoriesTitle="Categorias" />
         <Newsletter newsletterTitle="Se inscreva na nossa newsletter e fique por dentro das novidades" />
       </div>
-      <Footer menuItems={menuItems} companyItems={companyItems} BuySectionTitle="Comprar" CompanySection="Empresa"/>
+      <Footer menuItems={menuItems} companyItems={companyItems} buySectionTitle="Comprar" companySectionTitle="Empresa"/>
     </div>
   )
 }
