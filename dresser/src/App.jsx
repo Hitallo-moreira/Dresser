@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Header from "./components/Header"
 import HeroSection from "./components/HeroSection";
 import Brands from "./components/Brands";
@@ -5,10 +6,24 @@ import FeaturedProducts from "./components/FeaturedProducts";
 import Categories from "./components/CategoriesSection";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer"
+import axios from 'axios';
 
 function App() {
   const menuItems = ['Feminino', 'Masculino', 'Marcas'];
   const companyItems = ['Sobre', 'Contato'];
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost/dresser-back/');
+      const data = response.data;
+      console.log(data)
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
