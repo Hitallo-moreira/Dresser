@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "./components/Header"
 import HeroSection from "./components/HeroSection";
 import Brands from "./components/Brands";
@@ -11,11 +11,14 @@ import axios from 'axios';
 function App() {
   const menuItems = ['Feminino', 'Masculino', 'Marcas'];
   const companyItems = ['Sobre', 'Contato'];
+  const [products, setProducts] = useState([]);
+
   const fetchData = async () => {
     try {
       const response = await axios.get('http://localhost/dresser-back/');
       const data = response.data;
-      console.log(data)
+
+      setProducts(data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
@@ -31,7 +34,7 @@ function App() {
         <Header menuItems={menuItems} />
         <HeroSection info="Descubra a moda que faz você brilhar! Seu estilo único começa aqui" />
         <Brands brandsTitle="Marcas" />
-        <FeaturedProducts featuredTitle="Produtos em destaque" />
+        <FeaturedProducts featuredTitle="Produtos em destaque" products={products} />
         <Categories categoriesTitle="Categorias" />
         <Newsletter newsletterTitle="Se inscreva na nossa newsletter e fique por dentro das novidades" />
       </div>

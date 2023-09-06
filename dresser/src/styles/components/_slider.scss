@@ -2,11 +2,13 @@
 .swiper-slide.swiper-slide-next,
 .swiper-slide.swiper-slide-prev,
 .swiper-slide.swiper-slide-active {
-    background-color: #ccc;
-    height: 300px;
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    height: auto;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
     color: gray;
+    top: 45%;
 }

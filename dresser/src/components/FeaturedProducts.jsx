@@ -32,13 +32,14 @@ function FeaturedProducts(props) {
     return (
         <FeatureDiv>
             <Title>{isMobile ? 'Destaques' : props.featuredTitle}</Title>
-            <Slider />
+            <Slider products={ props.products }/>
         </FeatureDiv>
     )
 }
 
 FeaturedProducts.propTypes = {
     featuredTitle: PropTypes.arrayOf(PropTypes.string).isRequired,
+    products: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default FeaturedProducts
