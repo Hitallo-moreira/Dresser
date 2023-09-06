@@ -67,7 +67,7 @@ function Slider({ products }) {
   return (
     <Swiper
       modules={[Navigation, Autoplay]}
-      spaceBetween={50}
+      spaceBetween={30}
       slidesPerView={2}
       navigation
       autoplay={{ delay: 3000 }}
