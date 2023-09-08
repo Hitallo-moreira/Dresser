@@ -1,9 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import verao from '../assets/verao.jpeg';
+import inverno from '../assets/inverno.jpeg';
+import outono from '../assets/outono.jpeg';
+import primavera from '../assets/primavera.jpeg';
 
 const CategoryDiv = styled.div`
-    height: 700px;
-    background-color: #E1E1E1;
+    height: auto;
     margin-bottom: 7rem;
     padding: 3rem;
 
@@ -31,10 +34,30 @@ function Categories(props) {
         <CategoryDiv>
             <Title>{props.categoriesTitle}</Title>
             <div className='grid-container'>
-                <div className='grid-item'>1</div>
-                <div className='grid-item'>2</div>
-                <div className='grid-item'>3</div>
-                <div className='grid-item'>4</div>
+                <div className='grid-item'>
+                    <img src={verao} alt="Categoria verão" />
+                    <div className="info">
+                        <h1>Verão</h1>
+                    </div>
+                </div>
+                <div className='grid-item'>
+                    <img src={inverno} alt="Categoria verão" />
+                    <div className="info">
+                        <h1>Inverno</h1>
+                    </div>
+                </div>
+                <div className='grid-item'>
+                    <img src={outono} alt="Categoria verão" />
+                    <div className="info">
+                        <h1>Outono</h1>
+                    </div>
+                </div>
+                <div className='grid-item'>
+                    <img src={primavera} alt="Categoria verão" />
+                    <div className="info">
+                        <h1>Primavera</h1>
+                    </div>
+                </div>
             </div>
         </CategoryDiv>
     )

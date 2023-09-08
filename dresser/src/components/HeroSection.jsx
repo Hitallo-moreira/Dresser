@@ -36,7 +36,7 @@ const Info = styled.div`
 
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         font-size: 32px;
-        margin: 0 2px 0 2px;
+        margin: 0 10px 0 10px;
     }
 `;
 
