@@ -8,7 +8,6 @@ import primavera from '../assets/primavera.jpeg';
 const CategoryDiv = styled.div`
     height: auto;
     margin-bottom: 7rem;
-    padding: 3rem;
 
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         margin-bottom: 37px;
