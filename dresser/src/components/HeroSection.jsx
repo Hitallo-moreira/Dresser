@@ -88,7 +88,7 @@ function HeroSection(props) {
 
     return (
         <div>
-            <MainContent className='container'>
+            <MainContent>
                 <img src={banner} alt="Banner principal" />
                 <Info>
                     {isMobile ? 'Descubra a moda que faz você brilhar!' : props.info}
