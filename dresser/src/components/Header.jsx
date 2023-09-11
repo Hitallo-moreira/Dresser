@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import userProfile from '../assets/user-profile.png'
 import bag from '../assets/bag.png'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const fontSize = 20;
 const Logo = styled.div`
@@ -134,11 +135,10 @@ function Header({ menuItems }) {
                             <BurgerMenuItems>
                                 <Info>
                                     <UserProfile>
-                                        <img src={userProfile} alt="User profile" />
+                                        <Link to="/login">
+                                            <img src={userProfile} alt="User profile" />
+                                        </Link>
                                     </UserProfile>
-                                    <div>
-                                        <p>Olá, José</p>
-                                    </div>
                                 </Info>
                                     <BagDiv>
                                         <a href="">Meus pedidos</a>
@@ -171,11 +171,12 @@ function Header({ menuItems }) {
                             <img src={bag} alt="shopping bag" />
                         </BagDiv>
                         <UserProfile>
-                            <img src={userProfile} alt="User profile" />
+                            <Link to="/login">
+                                <img src={userProfile} alt="User profile" />
+                            </Link>
                         </UserProfile>
                     </Info>
                 </MenuOptions>
-
             )}
         </Menu>
     )
