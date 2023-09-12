@@ -1,6 +1,12 @@
 import styled from "styled-components"
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const FormDiv = styled.div`
     width: 50%;
@@ -55,11 +61,10 @@ const InputDiv = styled.div`
    flex-direction: column;
 
     input {
-        height: 60px;
-        border-radius: 10px;
+        height: 25px;
+        border-radius: 5px;
         border: none;
         outline: none;
-        background: #D9D9D9;
     }
 `;
 
@@ -85,12 +90,6 @@ const PasswordDiv = styled(InputDiv)`
     @media only screen and (min-width: 320px) and (max-width: 768px) {
         margin-bottom: 40px;
     }
-`;
-
-const Field = styled.input`
-   padding-left: 15px;
-   font-size: 20px;
-   color: #000;
 `;
 
 const Button = styled.input`
@@ -138,6 +137,14 @@ function Form(props) {
         };
     }, []);
 
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
     return (
         <FormDiv>
             <form>
@@ -148,11 +155,26 @@ function Form(props) {
                 <div>
                     <EmailDiv>
                         <label>{props.emailLabel}</label>
-                        <Field type="email" autoComplete="username" />
+                        <TextField type="email" autoComplete="username" />
                     </EmailDiv>
                     <PasswordDiv>
                         <label>{props.passwordLabel}</label>
-                        <Field type="password" autoComplete="current-password" />
+                        <OutlinedInput
+                            id="outlined-adornment-password"
+                            type={showPassword ? 'text' : 'password'}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                        />
                     </PasswordDiv>
                     <div>
                         <Button type="button" value={props.submitButtonText} />
