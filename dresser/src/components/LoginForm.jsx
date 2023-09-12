@@ -61,7 +61,7 @@ const InputDiv = styled.div`
    flex-direction: column;
 
     input {
-        height: 25px;
+        height: 30px;
         border-radius: 5px;
         border: none;
         outline: none;

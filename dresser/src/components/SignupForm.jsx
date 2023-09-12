@@ -1,8 +1,12 @@
 import styled from "styled-components"
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import showPasswordImg from '../assets/show-password.png'
-import hidePasswordImg from '../assets/hide.png'
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const FormDiv = styled.div`
     width: 50%;
@@ -56,11 +60,10 @@ const InputDiv = styled.div`
    flex-direction: column;
 
     input {
-        height: 60px;
-        border-radius: 10px;
+        height: 30px;
+        border-radius: 5px;
         border: none;
         outline: none;
-        background: #D9D9D9;
     }
 `;
 
@@ -89,6 +92,8 @@ const EmailDiv = styled(InputDiv)`
 `;
 
 const PasswordDiv = styled(InputDiv)`
+   margin-bottom: 22px;
+   
    label {
     font-weight: 600;
    }
@@ -103,14 +108,8 @@ const PasswordDiv = styled(InputDiv)`
    }
 
     @media only screen and (min-width: 320px) and (max-width: 768px) {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
-`;
-
-const Field = styled.input`
-   padding-left: 15px;
-   font-size: 20px;
-   color: #000;
 `;
 
 const Button = styled.input`
@@ -144,7 +143,7 @@ const Link = styled.b`
 
 function SignupForm(props) {
     const [isMobile, setIsMobile] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+
 
     useEffect(() => {
         function handleWindowResize() {
@@ -159,6 +158,14 @@ function SignupForm(props) {
         };
     }, []);
 
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
     return (
         <FormDiv>
             <form>
@@ -169,23 +176,34 @@ function SignupForm(props) {
                 <div>
                     <NameDiv>
                         <label>{props.nameLabel}</label>
-                        <Field type="email" autoComplete="username" />
+                        <TextField autoComplete="username" />
+
                     </NameDiv>
                     <EmailDiv>
                         <label>{props.emailLabel}</label>
-                        <Field type="email" autoComplete="username" />
+                        <TextField type="email" autoComplete="username" />
                     </EmailDiv>
                     <EmailDiv>
                         <label>{props.confirmEmailLabel}</label>
-                        <Field type="email" autoComplete="username" />
+                        <TextField type="email" autoComplete="username" />
                     </EmailDiv>
                     <PasswordDiv>
                         <label>{props.passwordLabel}</label>
-                        <Field type={showPassword ? "text" : "password"} autoComplete="current-password" />
-                        <img
-                            src={showPassword ? hidePasswordImg : showPasswordImg}
-                            alt={showPassword ? "Ocultar senha" : "Mostrar senha"}
-                            onClick={() => setShowPassword(!showPassword)}
+                        <OutlinedInput
+                            id="outlined-adornment-password"
+                            type={showPassword ? 'text' : 'password'}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
                         />
                     </PasswordDiv>
                     <div>
