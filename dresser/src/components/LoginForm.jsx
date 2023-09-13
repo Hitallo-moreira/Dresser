@@ -177,7 +177,7 @@ function Form(props) {
                         />
                     </PasswordDiv>
                     <div>
-                        <Button type="button" value={props.submitButtonText} />
+                        <Button type="submit" value={props.submitButtonText} />
                     </div>
                     <CreateAccount>
                         <p>{props.notRegistered}</p> <Link>{props.createAccount}</Link>
