@@ -12,7 +12,7 @@ function HomePage() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost/dresser-back/');
+            const response = await axios.get('http://localhost/dresser-back/includes/db_connection.php');
             const data = response.data;
 
             setProducts(data);
